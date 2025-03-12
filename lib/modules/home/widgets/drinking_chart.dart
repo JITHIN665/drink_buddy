@@ -1,3 +1,4 @@
+import 'package:drink_buddy/themes/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class DrinkingChart extends StatelessWidget {
@@ -8,11 +9,11 @@ class DrinkingChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (data.isEmpty) {
-      return const Padding(
-        padding: EdgeInsets.all(20.0),
+      return Padding(
+        padding: const EdgeInsets.all(20.0),
         child: Text(
           "No drinking data available",
-          style: TextStyle(color: Colors.white, fontSize: 16),
+          style: TextStyle(color: appColor(context).fullWhite, fontSize: 16),
         ),
       );
     }
@@ -26,7 +27,7 @@ class DrinkingChart extends StatelessWidget {
             children: data.map((entry) {
               return Text(
                 entry['cost'],
-                style: const TextStyle(color: Colors.white),
+                style: TextStyle(color: appColor(context).fullWhite),
               );
             }).toList(),
           ),
@@ -41,17 +42,17 @@ class DrinkingChart extends StatelessWidget {
                     height: entry['amount'] * 10.0,
                     width: 40,
                     decoration: BoxDecoration(
-                      color: Colors.blue,
+                      color: const Color(0xFF2196F3),
                       borderRadius: BorderRadius.circular(5),
                     ),
                     child: Padding(
                       padding: const EdgeInsets.only(top: 5),
                       child: Column(
                         children: [
-                          const Icon(Icons.local_drink, color: Colors.white),
+                          Icon(Icons.local_drink, color: appColor(context).fullWhite),
                           Text(
                             "${entry['amount']}",
-                            style: const TextStyle(color: Colors.white),
+                            style: TextStyle(color: appColor(context).fullWhite),
                           ),
                         ],
                       ),

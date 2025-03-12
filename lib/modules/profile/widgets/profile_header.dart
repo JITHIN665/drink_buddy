@@ -1,3 +1,4 @@
+import 'package:drink_buddy/themes/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class ProfileHeader extends StatelessWidget {
@@ -22,10 +23,10 @@ class ProfileHeader extends StatelessWidget {
       ),
       child: Row(
         children: [
-          const CircleAvatar(
+           CircleAvatar(
             radius: 30,
             backgroundColor: Colors.grey,
-            child: Icon(Icons.person, size: 30, color: Colors.white),
+            child: Icon(Icons.person, size: 30, color: appColor(context).fullWhite),
           ),
           const SizedBox(width: 12),
           Expanded(

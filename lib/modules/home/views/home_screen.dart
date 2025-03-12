@@ -2,6 +2,8 @@ import 'package:drink_buddy/modules/home/widgets/button_grid.dart';
 import 'package:drink_buddy/modules/home/widgets/counter_section.dart';
 import 'package:drink_buddy/modules/home/widgets/drinking_chart.dart';
 import 'package:drink_buddy/modules/home/widgets/plan_progress_indicator.dart';
+import 'package:drink_buddy/themes/app_theme.dart';
+import 'package:drink_buddy/themes/app_transition.dart';
 import 'package:drink_buddy/themes/widgets/custom_bottom_navigation_bar.dart';
 import 'package:drink_buddy/themes/widgets/split_background.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +19,10 @@ List<Map<String, Object>> data = [
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
+  static Route route() {
+    return AppFadeTransition(page: const HomeScreen());
+  }
+
   @override
   Widget build(
     BuildContext context,
@@ -31,25 +37,27 @@ class HomeScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const SizedBox(height: 10),
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    PlanProgressIndicator(progress: 0.87),
+                    const PlanProgressIndicator(progress: 0.87),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Plan Progress", textAlign: TextAlign.center, style: TextStyle(color: Colors.white, fontSize: 20)),
-                        SizedBox(height: 8),
-                        Text("Drink less, Save Money", textAlign: TextAlign.center, style: TextStyle(color: Colors.white, fontSize: 14)),
+                        Text("Plan Progress", textAlign: TextAlign.center, style: TextStyle(color: appColor(context).fullWhite, fontSize: 20)),
+                        const SizedBox(height: 8),
+                        Text("Drink less, Save Money",
+                            textAlign: TextAlign.center, style: TextStyle(color: appColor(context).fullWhite, fontSize: 14)),
                       ],
                     ),
-                    Icon(Icons.arrow_forward_ios, color: Colors.white),
+                    Icon(Icons.arrow_forward_ios, color: appColor(context).fullWhite),
                   ],
                 ),
                 const SizedBox(height: 20),
                 DrinkingChart(data: data),
                 const SizedBox(height: 10),
-                const Text("Last 5 Drinking and Spending Patterns", textAlign: TextAlign.center, style: TextStyle(color: Colors.white, fontSize: 14)),
+                Text("Last 5 Drinking and Spending Patterns",
+                    textAlign: TextAlign.center, style: TextStyle(color: appColor(context).fullWhite, fontSize: 14)),
               ],
             ),
           ),
@@ -57,11 +65,7 @@ class HomeScreen extends StatelessWidget {
             top: screenHeight * 0.55 - 40,
             left: 15,
             right: 15,
-            child: CounterSection(
-              count: 10,
-              onAddPressed: () {},
-              onSettingsPressed: () {},
-            ),
+            child: const CounterSection(),
           ),
           Positioned(
             bottom: screenHeight * 0.1 - 70,

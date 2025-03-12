@@ -37,7 +37,7 @@ class AchievmentWidget extends StatelessWidget {
   IconData getIcon(String iconName) {
     switch (iconName) {
       case "medal":
-        return Icons.emoji_events;
+        return Icons.emoji_flags_outlined;
       case "shield":
         return Icons.shield;
       case "trophy":

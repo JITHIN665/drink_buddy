@@ -45,7 +45,7 @@ class ButtonGrid extends StatelessWidget {
       children: [
         CircleAvatar(
           radius: 30,
-          backgroundColor: isSOS ? Colors.red : Colors.blue.shade100,
+          backgroundColor: isSOS ? const Color(0xFFF44336) : const Color(0xFFBBDEFB),
           child: Icon(icon, size: 30, color: isSOS ? Colors.white : Colors.blue),
         ),
         const SizedBox(height: 5),

@@ -1,5 +1,7 @@
 import 'package:drink_buddy/modules/profile/widgets/info_card.dart';
 import 'package:drink_buddy/modules/profile/widgets/profile_header.dart';
+import 'package:drink_buddy/themes/app_theme.dart';
+import 'package:drink_buddy/themes/app_transition.dart';
 import 'package:drink_buddy/themes/widgets/custom_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -15,10 +17,14 @@ class ProfileScreen extends StatelessWidget {
 
   ProfileScreen({super.key});
 
+  static Route route() {
+    return AppFadeTransition(page: ProfileScreen());
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue.shade100,
+      backgroundColor: appColor(context).primaryBlueLight,
       bottomNavigationBar: CustomBottomNavigationBar(
         selectedIndex: 4,
         onItemSelected: (p0) {},

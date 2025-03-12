@@ -1,8 +1,9 @@
+import 'package:drink_buddy/themes/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
 class PlanProgressIndicator extends StatelessWidget {
-  final double progress; // Progress percentage (0.0 - 1.0)
+  final double progress;
 
   const PlanProgressIndicator({super.key, required this.progress});
 
@@ -16,9 +17,9 @@ class PlanProgressIndicator extends StatelessWidget {
           Container(
             width: 110,
             height: 110,
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: Colors.white,
+              color: appColor(context).fullWhite,
             ),
           ),
           Container(
@@ -32,9 +33,9 @@ class PlanProgressIndicator extends StatelessWidget {
           CircularPercentIndicator(
             radius: 50.0,
             lineWidth: 10.0,
-            percent: progress, // Dynamically set progress
+            percent: progress,
             center: Text(
-              "${(progress * 100).toInt()}%", // Show percentage
+              "${(progress * 100).toInt()}%",
               style: const TextStyle(
                 color: Colors.green,
                 fontSize: 20,

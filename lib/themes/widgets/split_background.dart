@@ -1,3 +1,4 @@
+import 'package:drink_buddy/themes/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class SplitBackground extends StatelessWidget {
@@ -12,11 +13,11 @@ class SplitBackground extends StatelessWidget {
         children: [
           Container(
             height: screenHeight * 0.55,
-            color: Colors.blue.shade900,
+            color: appColor(context).primaryBlue,
           ),
           Container(
             height: screenHeight * 0.55,
-            color: Colors.blue.shade100,
+            color: appColor(context).primaryBlueLight,
           ),
         ],
       ),

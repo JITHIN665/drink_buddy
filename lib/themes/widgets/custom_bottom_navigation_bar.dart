@@ -1,6 +1,9 @@
+import 'package:drink_buddy/modules/calender/views/calender_screen.dart';
 import 'package:drink_buddy/modules/home/views/home_screen.dart';
 import 'package:drink_buddy/modules/module/view/module_screen.dart';
 import 'package:drink_buddy/modules/profile/views/profile_screen.dart';
+import 'package:drink_buddy/modules/quickBuddy/views/quick_link_screen.dart';
+import 'package:drink_buddy/themes/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class CustomBottomNavigationBar extends StatelessWidget {
@@ -24,9 +27,9 @@ class CustomBottomNavigationBar extends StatelessWidget {
     ];
 
     return Container(
-      decoration: const BoxDecoration(
-        color: Colors.white,
-        boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 5)],
+      decoration: BoxDecoration(
+        color: appColor(context).fullWhite,
+        boxShadow: const [BoxShadow(color: Colors.black26, blurRadius: 5)],
       ),
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: Row(
@@ -97,16 +100,16 @@ class CustomBottomNavigationBar extends StatelessWidget {
         );
         break;
       case "Drink Buddy":
-        // Navigator.pushReplacement(
-        //   context,
-        //   MaterialPageRoute(builder: (context) => const DrinkBuddyScreen()),
-        // );
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => QuickLinkScreen()),
+        );
         break;
       case "Calendar":
-        // Navigator.pushReplacement(
-        //   context,
-        //   MaterialPageRoute(builder: (context) => const CalendarScreen()),
-        // );
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const CustomCalendarScreen()),
+        );
         break;
       case "Profile":
         Navigator.pushReplacement(

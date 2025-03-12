@@ -1,3 +1,4 @@
+import 'package:drink_buddy/themes/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class InfoCard extends StatelessWidget {
@@ -17,7 +18,7 @@ class InfoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Colors.blue.shade50,
+      color: appColor(context).fullWhite,
       elevation: 1,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8),
