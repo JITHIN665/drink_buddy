@@ -2,7 +2,6 @@ import 'package:drink_buddy/modules/module/widget/achievment_widget.dart';
 import 'package:drink_buddy/modules/module/widget/topic_card.dart';
 import 'package:drink_buddy/themes/app_theme.dart';
 import 'package:drink_buddy/themes/app_transition.dart';
-import 'package:drink_buddy/themes/widgets/custom_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
 class ModuleScreen extends StatelessWidget {
@@ -13,6 +12,8 @@ class ModuleScreen extends StatelessWidget {
     {"title": "Mindfulness", "isLocked": false},
     {"title": "Guilt and Shame", "isLocked": true},
     {"title": "Relationship Issues", "isLocked": true},
+    {"title": "Stress Management", "isLocked": true},
+    {"title": "Healthy Habits", "isLocked": true},
   ];
 
   ModuleScreen({super.key});
@@ -23,7 +24,10 @@ class ModuleScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int itemCount = topics.length;
+    int maxItems = 6;
+    List<Map<String, dynamic>> displayedTopics = topics.take(maxItems).toList();
+
+    int itemCount = displayedTopics.length;
     double screenHeight = MediaQuery.of(context).size.height;
     double bottomPadding = 80;
     double topPadding = 200;
@@ -44,7 +48,7 @@ class ModuleScreen extends StatelessWidget {
                 physics: const NeverScrollableScrollPhysics(),
                 itemCount: itemCount,
                 itemBuilder: (context, index) {
-                  final item = topics[index];
+                  final item = displayedTopics[index];
                   return SizedBox(
                     height: itemHeight,
                     child: TopicCard(
