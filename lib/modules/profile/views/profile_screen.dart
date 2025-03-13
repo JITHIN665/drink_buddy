@@ -25,10 +25,6 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: appColor(context).primaryBlueLight,
-      bottomNavigationBar: CustomBottomNavigationBar(
-        selectedIndex: 4,
-        onItemSelected: (p0) {},
-      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(

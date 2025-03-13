@@ -1,4 +1,4 @@
-import 'package:drink_buddy/modules/home/views/home_screen.dart';
+import 'package:drink_buddy/themes/widgets/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:animated_text_kit/animated_text_kit.dart';
@@ -27,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
     Timer(const Duration(seconds: 6), () {
       Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => const HomeScreen()),
+          MaterialPageRoute(builder: (context) => const MainScreen()),
         );
     });
   }

@@ -29,10 +29,6 @@ class _CustomCalendarScreenState extends State<CustomCalendarScreen> {
           ),
         ),
       ),
-      bottomNavigationBar: CustomBottomNavigationBar(
-        selectedIndex: 3,
-        onItemSelected: (p0) {},
-      ),
     );
   }
 

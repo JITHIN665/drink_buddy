@@ -23,6 +23,14 @@ class ModuleScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    int itemCount = topics.length;
+    double screenHeight = MediaQuery.of(context).size.height;
+    double bottomPadding = 80;
+    double topPadding = 200;
+    double availableHeight = screenHeight - bottomPadding - topPadding;
+
+    double itemHeight = availableHeight / itemCount;
+
     return Scaffold(
       backgroundColor: appColor(context).primaryBlueLight,
       body: Column(
@@ -30,22 +38,25 @@ class ModuleScreen extends StatelessWidget {
           const SizedBox(height: 40),
           const AchievmentWidget(),
           Expanded(
-            child: ListView.builder(
-              itemCount: topics.length,
-              itemBuilder: (context, index) {
-                final item = topics[index];
-                return TopicCard(
-                  title: item["title"]!,
-                  isLocked: item["isLocked"]!,
-                );
-              },
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 0),
+              child: ListView.builder(
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: itemCount,
+                itemBuilder: (context, index) {
+                  final item = topics[index];
+                  return SizedBox(
+                    height: itemHeight,
+                    child: TopicCard(
+                      title: item["title"]!,
+                      isLocked: item["isLocked"]!,
+                    ),
+                  );
+                },
+              ),
             ),
           ),
         ],
-      ),
-      bottomNavigationBar: CustomBottomNavigationBar(
-        selectedIndex: 1,
-        onItemSelected: (p0) {},
       ),
     );
   }

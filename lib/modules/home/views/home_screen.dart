@@ -38,7 +38,6 @@ class HomeScreen extends StatelessWidget {
               children: [
                 const SizedBox(height: 10),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     const PlanProgressIndicator(progress: 0.87),
                     Column(
@@ -50,6 +49,7 @@ class HomeScreen extends StatelessWidget {
                             textAlign: TextAlign.center, style: TextStyle(color: appColor(context).fullWhite, fontSize: 14)),
                       ],
                     ),
+                    const Spacer(),
                     Icon(Icons.arrow_forward_ios, color: appColor(context).fullWhite),
                   ],
                 ),
@@ -74,10 +74,6 @@ class HomeScreen extends StatelessWidget {
             child: const ButtonGrid(),
           ),
         ],
-      ),
-      bottomNavigationBar: CustomBottomNavigationBar(
-        selectedIndex: 0,
-        onItemSelected: (p0) {},
       ),
     );
   }

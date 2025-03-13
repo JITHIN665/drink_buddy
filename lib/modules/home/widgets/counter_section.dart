@@ -21,6 +21,13 @@ class CounterSection extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const Icon(Icons.local_drink, color: Colors.blue, size: 30),
+              Visibility(
+                visible: counterProvider.count != 0 ? true : false,
+                child: IconButton(
+                  icon: const Icon(Icons.remove, size: 28),
+                  onPressed: counterProvider.decrement,
+                ),
+              ),
               Text(
                 "${counterProvider.count}",
                 style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -36,8 +43,7 @@ class CounterSection extends StatelessWidget {
               ),
               IconButton(
                 icon: const Icon(Icons.tune, color: Colors.black, size: 28),
-                onPressed: () {
-                },
+                onPressed: () {},
               ),
             ],
           ),

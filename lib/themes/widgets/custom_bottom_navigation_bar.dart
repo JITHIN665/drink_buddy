@@ -1,8 +1,3 @@
-import 'package:drink_buddy/modules/calender/views/calender_screen.dart';
-import 'package:drink_buddy/modules/home/views/home_screen.dart';
-import 'package:drink_buddy/modules/module/view/module_screen.dart';
-import 'package:drink_buddy/modules/profile/views/profile_screen.dart';
-import 'package:drink_buddy/modules/quickBuddy/views/quick_link_screen.dart';
 import 'package:drink_buddy/themes/app_theme.dart';
 import 'package:flutter/material.dart';
 
@@ -39,10 +34,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
           final isSelected = selectedIndex == index;
 
           return GestureDetector(
-            onTap: () {
-              onItemSelected(index);
-              _navigateToScreen(context, item['label'] as String);
-            },
+            onTap: () => onItemSelected(index),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -83,42 +75,5 @@ class CustomBottomNavigationBar extends StatelessWidget {
         }),
       ),
     );
-  }
-
-  void _navigateToScreen(BuildContext context, String label) {
-    switch (label) {
-      case "Home":
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => const HomeScreen()),
-        );
-        break;
-      case "Modules":
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => ModuleScreen()),
-        );
-        break;
-      case "Drink Buddy":
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => QuickLinkScreen()),
-        );
-        break;
-      case "Calendar":
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => const CustomCalendarScreen()),
-        );
-        break;
-      case "Profile":
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => ProfileScreen()),
-        );
-        break;
-      default:
-        break;
-    }
   }
 }

@@ -3,7 +3,6 @@ import 'package:drink_buddy/modules/quickBuddy/widgets/show_more_button.dart';
 import 'package:drink_buddy/modules/quickBuddy/widgets/welcome_message.dart';
 import 'package:drink_buddy/themes/app_theme.dart';
 import 'package:drink_buddy/themes/app_transition.dart';
-import 'package:drink_buddy/themes/widgets/custom_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
 class QuickLinkScreen extends StatelessWidget {
@@ -45,10 +44,6 @@ class QuickLinkScreen extends StatelessWidget {
             const SizedBox(height: 20),
           ],
         ),
-      ),
-      bottomNavigationBar: CustomBottomNavigationBar(
-        selectedIndex: 2,
-        onItemSelected: (p0) {},
       ),
     );
   }
